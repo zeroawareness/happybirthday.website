@@ -48,7 +48,6 @@
             display: none;
         }
 
-        /* 🎉 Glow-up for ending message */
         #ending-message {
             display: none;
             font-family: cursive;
@@ -74,25 +73,19 @@
 <body>
     <div class="main">
         <h1 style="color:lightpink; font-family:cursive; text-align: center;padding-top: 20px; font-size: 200%;">HOII [ HAPPY] !</h1>
-        <h3 style="color:lightpink; font-family:cursive; text-align: center;padding-top:px; font-size: 156%;"> Happy Birthday 🎀
-
+        <h3 style="color:lightpink; font-family:cursive; text-align: center;padding-top:px; font-size: 156%;">
+            Happy Birthday 🎀<br><br>
             Cheers to your fabulous 21st year <br>
-            
             You are effortlessly the kindest, coolest, prettiest, and most incredible gamer girl to ever exist. <br>
-            
-            You've shown me that friends can be so much more than just that<br>—they can be like sisters, best friends, and even a bit like a mother.<br> 
-            
-            I just want to say that you are literally my older sister,<br> even though distance has separated us. Yet, we still find a way to connect and chat every day, <br> and that means the world to me! 💖 <br>
-            
+            You've shown me that friends can be so much more than just that — they can be like sisters, best friends, and even a bit like a mother.<br> 
+            I just want to say that you are literally my older sister, even though distance has separated us. Yet, we still find a way to connect and chat every day, and that means the world to me! 💖 <br>
             Please keep shining that beautiful kindness of yours. It's a rare gift in this world, and I hope you never lose it as time goes on. <br>
-            
-            Live your life to the fullest, my beige princess, Indulge in your cake, sip on that orange juice, and savor every single moment. <br> You deserve all the joy and happiness life has to offer.<br>
-
-            this is just a small video that i made as a surprise, hope you like it <br>
-            Happy 21st Birthday! 🩷
-            
+            Live your life to the fullest, my beige princess, indulge in your cake, sip on that orange juice, and savor every single moment. <br> You deserve all the joy and happiness life has to offer.<br><br>
+            This is just a small video that I made as a surprise, hope you like it 💕<br>
+            Happy 21st Birthday! 🩷<br><br>
             With all my love,  <br>
-            Rhoenix </h3>
+            Rhoenix
+        </h3>
         <h2 style="color:rgb(226, 173, 202); font-family:cursive; text-align: center;padding-top: 0%; font-size: 200%;">wanna start ?</h2>
 
         <form id="start-form">
@@ -103,13 +96,17 @@
         <div id="message"></div>
 
         <div class="video-container" id="video-section">
-            <video width="720" controls>
-                <source src="birthday.mp4.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; max-width: 100%;">
+                <iframe
+                    src="https://www.youtube.com/embed/sCaHHmzX8m8?autoplay=1"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                </iframe>
+            </div>
         </div>
 
-        <!-- 💖 Glow-up message -->
         <div id="ending-message">Did you like it? 💖 <br> جرل لاف يو سو ماتش</div>
     </div>
 
@@ -121,31 +118,24 @@
             const choice = form.querySelector('button[name="choice"]:focus').value;
             const messageDiv = document.getElementById("message");
             const videoSection = document.getElementById("video-section");
-            const video = document.querySelector("video");
-
-            // 🎉 When video ends, show glowing message
-            video.addEventListener("ended", () => {
-                const ending = document.getElementById("ending-message");
-                ending.style.display = "block";
-                ending.style.animation = "popUp 1s ease forwards";
-            });
 
             if (choice === "yes") {
                 messageDiv.textContent = "";
                 videoSection.style.display = "block";
-                video.muted = false;
-                video.play();
             } else {
                 messageDiv.textContent = "Sorry there is no 'No' ";
                 setTimeout(() => {
                     videoSection.style.display = "block";
-                    video.muted = false;
-                    video.play();
                 }, 1500);
             }
+
+            // Manually trigger ending message after fixed delay (simulate video end)
+            setTimeout(() => {
+                const ending = document.getElementById("ending-message");
+                ending.style.display = "block";
+                ending.style.animation = "popUp 1s ease forwards";
+            }, 60000); // After ~1 min, or adjust to match your video length
         });
     </script>
 </body>
 </html>
-
-

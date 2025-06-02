@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Birthday page</title>
+    <style>
+        body {
+            background-color: #fff0f5;
+            background-image: url(https://i.pinimg.com/736x/3e/42/3d/3e423d18fdb6b810cabc07493d8ebc49.jpg);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: inline-block;
+        }
+
+        button {
+            font-size: 1.5em;
+            padding: 10px 25px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ffb6c1;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff69b4;
+        }
+
+        #message {
+            font-size: 1.5em;
+            color: #c71585;
+            margin-top: 30px;
+        }
+
+        .video-container {
+            margin-top: 40px;
+            display: none;
+        }
+
+        /* 🎉 Glow-up for ending message */
+        #ending-message {
+            display: none;
+            font-family: cursive;
+            color: #d63384;
+            font-size: 1.7em;
+            margin-top: 30px;
+            animation: popUp 1s ease forwards;
+            text-shadow: 0 0 10px #ffb6c1;
+        }
+
+        @keyframes popUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 style="color:lightpink; font-family:cursive; text-align: center;padding-top: 20px; font-size: 200%;">HOII [ HAPPY] !</h1>
+        <h3 style="color:lightpink; font-family:cursive; text-align: center;padding-top:px; font-size: 156%;"> Happy Birthday 🎀
+
+            Cheers to your fabulous 21st year <br>
+            
+            You are effortlessly the kindest, coolest, prettiest, and most incredible gamer girl to ever exist. <br>
+            
+            You've shown me that friends can be so much more than just that<br>—they can be like sisters, best friends, and even a bit like a mother.<br> 
+            
+            I just want to say that you are literally my older sister,<br> even though distance has separated us. Yet, we still find a way to connect and chat every day, <br> and that means the world to me! 💖 <br>
+            
+            Please keep shining that beautiful kindness of yours. It's a rare gift in this world, and I hope you never lose it as time goes on. <br>
+            
+            Live your life to the fullest, my beige princess, Indulge in your cake, sip on that orange juice, and savor every single moment. <br> You deserve all the joy and happiness life has to offer.<br>
+
+            this is just a small video that i made as a surprise, hope you like it <br>
+            Happy 21st Birthday! 🩷
+            
+            With all my love,  <br>
+            Rhoenix </h3>
+        <h2 style="color:rgb(226, 173, 202); font-family:cursive; text-align: center;padding-top: 0%; font-size: 200%;">wanna start ?</h2>
+
+        <form id="start-form">
+            <button type="submit" name="choice" value="yes">Yes</button>
+            <button type="submit" name="choice" value="no">No</button>
+        </form>
+
+        <div id="message"></div>
+
+        <div class="video-container" id="video-section">
+            <video width="720" controls>
+                <source src="birthday.mp4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- 💖 Glow-up message -->
+        <div id="ending-message">Did you like it? 💖 <br> جرل لاف يو سو ماتش</div>
+    </div>
+
+    <script>
+        document.getElementById("start-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const choice = form.querySelector('button[name="choice"]:focus').value;
+            const messageDiv = document.getElementById("message");
+            const videoSection = document.getElementById("video-section");
+            const video = document.querySelector("video");
+
+            // 🎉 When video ends, show glowing message
+            video.addEventListener("ended", () => {
+                const ending = document.getElementById("ending-message");
+                ending.style.display = "block";
+                ending.style.animation = "popUp 1s ease forwards";
+            });
+
+            if (choice === "yes") {
+                messageDiv.textContent = "";
+                videoSection.style.display = "block";
+                video.muted = false;
+                video.play();
+            } else {
+                messageDiv.textContent = "Sorry there is no 'No' ";
+                setTimeout(() => {
+                    videoSection.style.display = "block";
+                    video.muted = false;
+                    video.play();
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
